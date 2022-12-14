@@ -8,11 +8,13 @@ const Form = ({
   editToDo,
   setEditedToDo,
 }) => {
+  console.log("...." + editToDo + "..." + setEditedToDo);
   const updateTodo = (title, id, status) => {
     let date = new Date();
     const newTodo = activity.map((activity) =>
       activity.id === id ? { title, id, status, date } : activity
     );
+    // console.log(newTodo);
     setActivity(newTodo);
     setEditedToDo("");
   };

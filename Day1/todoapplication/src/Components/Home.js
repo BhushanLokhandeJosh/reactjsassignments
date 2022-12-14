@@ -4,7 +4,7 @@ import Form from "./Form";
 
 const Home = () => {
   const [input, setInput] = useState(""); //for input todo...
-  const [editToDo, setEditedToDo] = useState();
+  const [editToDo, setEditedToDo] = useState(null); //for edited todo...
   const [activity, setActivity] = useState([
     {
       id: 1,

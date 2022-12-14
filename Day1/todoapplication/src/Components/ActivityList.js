@@ -20,6 +20,7 @@ const ActivityList = ({
       >
         <tr>
           <th>Id</th>
+          <th>Time</th>
           <th>Title</th>
           <th>status</th>
           <th>Edit</th>
@@ -30,7 +31,7 @@ const ActivityList = ({
         {activity.map((object) => (
           <tr>
             <td>{object.id}</td>
-            {/* <td>
+            <td>
               {object.Date.getFullYear() +
                 "/" +
                 object.Date.getMonth() +
@@ -41,8 +42,9 @@ const ActivityList = ({
                 " Hrs " +
                 object.Date.getMinutes() +
                 " min " +
-                object.Date.getSeconds()}
-            </td> */}
+                object.Date.getSeconds() +
+                " sec"}
+            </td>
             <td>{object.title}</td>
             <td>{object.status}</td>
             <td>
