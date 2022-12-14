@@ -8,13 +8,13 @@ const Form = ({
   editToDo,
   setEditedToDo,
 }) => {
-  console.log("...." + editToDo + "..." + setEditedToDo);
   const updateTodo = (title, id, status) => {
     let date = new Date();
+    console.log(date);
     const newTodo = activity.map((activity) =>
-      activity.id === id ? { title, id, status, date } : activity
+      activity.id === id ? { id, title, status, date } : activity
     );
-    // console.log(newTodo);
+    console.log(newTodo);
     setActivity(newTodo);
     setEditedToDo("");
   };
@@ -32,8 +32,7 @@ const Form = ({
     setInput(event.target.value);
   };
 
-  const onFormSubmit = (event) => {
-    event.preventDefault();
+  const onFormSubmit = () => {
     if (!editToDo) {
       setActivity([
         ...activity,
@@ -41,7 +40,7 @@ const Form = ({
           id: activity.length + 1,
           title: input,
           status: "Pending",
-          Date: new Date(),
+          date: new Date(),
         },
       ]);
       setInput("");
@@ -50,7 +49,7 @@ const Form = ({
     }
   };
   return (
-    <form onSubmit={onFormSubmit}>
+    <>
       <input
         type="text"
         placeholder="Enter todo"
@@ -59,10 +58,10 @@ const Form = ({
         required
         onChange={onInputChange}
       ></input>
-      <button className="button-add" type="submit">
+      <button className="button-add" onClick={onFormSubmit}>
         {editToDo ? "EDIT" : "ADD"}
       </button>
-    </form>
+    </>
   );
 };
 

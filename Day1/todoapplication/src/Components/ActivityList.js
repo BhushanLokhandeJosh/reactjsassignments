@@ -20,7 +20,7 @@ const ActivityList = ({
       >
         <tr>
           <th>Id</th>
-          <th>Time</th>
+          <th>Start Time</th>
           <th>Title</th>
           <th>status</th>
           <th>Edit</th>
@@ -32,17 +32,17 @@ const ActivityList = ({
           <tr>
             <td>{object.id}</td>
             <td>
-              {object.Date.getFullYear() +
+              {object.date.getFullYear() +
                 "/" +
-                object.Date.getMonth() +
+                object.date.getMonth() +
                 "/" +
-                object.Date.getDate() +
+                object.date.getDate() +
                 " On " +
-                object.Date.getHours() +
+                object.date.getHours() +
                 " Hrs " +
-                object.Date.getMinutes() +
+                object.date.getMinutes() +
                 " min " +
-                object.Date.getSeconds() +
+                object.date.getSeconds() +
                 " sec"}
             </td>
             <td>{object.title}</td>

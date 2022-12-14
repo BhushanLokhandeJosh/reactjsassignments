@@ -9,25 +9,25 @@ const Home = () => {
     {
       id: 1,
       title: "Purchase Book",
-      Date: new Date("2022-12-12"),
+      date: new Date("2022-12-12"),
       status: "Completed",
     },
     {
       id: 2,
       title: "Buy Vegetables",
-      Date: new Date("2022-12-13"),
+      date: new Date("2022-12-13"),
       status: "Pending",
     },
     {
       id: 3,
       title: "Phone call to friend",
-      Date: new Date("2022-12-12"),
+      date: new Date("2022-12-12"),
       status: "Completed",
     },
     {
       id: 4,
       title: "Friends Wedding",
-      Date: new Date("2022-12-12"),
+      date: new Date("2022-12-12"),
       status: "Pending",
     },
   ]); //for all todo list.
@@ -38,18 +38,20 @@ const Home = () => {
   };
 
   const changeStatus = (id) => {
-    let object = activity.find((item) => item.id === id);
+    const tempArr = [...activity];
+    let object = tempArr.find((item) => item.id === id);
+
     if (object.status === "Pending") {
       object.status = "Completed";
     } else {
       object.status = "Pending";
     }
-    console.log(activity);
-    setActivity([...activity]);
+    setActivity([...tempArr]);
   };
 
   const editTodo = (id) => {
-    const findTodo = activity.find((activity) => activity.id === id);
+    const tempArr = [...activity];
+    const findTodo = tempArr.find((activity) => activity.id === id);
     setEditedToDo(findTodo);
   };
 
