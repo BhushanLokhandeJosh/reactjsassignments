@@ -26,10 +26,6 @@ const Home = () => {
 
     if (object.status === "Pending") {
       object.status = "Completed";
-      console.log(object.title);
-      <span style={{ textDecoration: "line-through", color: "yellow" }}>
-        <blur>{object.title}</blur>
-      </span>;
     } else {
       object.status = "Pending";
     }
