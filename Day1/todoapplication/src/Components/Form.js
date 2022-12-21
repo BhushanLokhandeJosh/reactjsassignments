@@ -8,6 +8,14 @@ const Form = ({
   editToDo,
   setEditedToDo,
 }) => {
+  useEffect(() => {
+    if (editToDo) {
+      setInput(editToDo.title);
+    } else {
+      setInput("");
+    }
+  }, [setInput, editToDo]);
+
   const updateTodo = (title, id, status) => {
     let date = new Date();
     console.log(date);
@@ -18,14 +26,6 @@ const Form = ({
     setActivity(newTodo);
     setEditedToDo("");
   };
-
-  useEffect(() => {
-    if (editToDo) {
-      setInput(editToDo.title);
-    } else {
-      setInput("");
-    }
-  }, [setInput, editToDo]);
 
   const onInputChange = (event) => {
     console.log(event);
