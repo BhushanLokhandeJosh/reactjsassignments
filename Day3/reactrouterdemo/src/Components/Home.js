@@ -34,13 +34,11 @@ const Home = ({ activity, setActivity }) => {
                 Create Blog
               </Link>
 
-              {
-                <ActivityList
-                  activity={activity}
-                  setActivity={setActivity}
-                  title="Activity List"
-                />
-              }
+              <ActivityList
+                activity={activity}
+                setActivity={setActivity}
+                title="Activity List"
+              />
             </div>
           )}
         </div>

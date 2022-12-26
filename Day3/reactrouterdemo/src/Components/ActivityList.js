@@ -26,7 +26,9 @@ const ActivityList = ({ activity, setActivity, title }) => {
               </nav>
             </td>
             <td>
-              <Link to={`/blogs/delete/${object.id}`}>Delete</Link>
+              <button>
+                <Link to={`/blogs/delete/${object.id}`}>Delete</Link>
+              </button>
             </td>
           </tr>
         ))}

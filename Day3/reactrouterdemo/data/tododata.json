@@ -1,11 +1,6 @@
 {
   "todo": [
     {
-      "id": 2,
-      "title": "quis ut nam facilis et ",
-      "status": "Pending"
-    },
-    {
       "id": 3,
       "title": "fugiat",
       "status": "Pending"
@@ -241,11 +236,6 @@
       "status": "Completed"
     },
     {
-      "id": 50,
-      "title": "cupitate necessitatibus ullam aut quis dolor voluptate",
-      "status": "Pending"
-    },
-    {
       "id": 51,
       "title": "distinctio exercitationem ab doloribus",
       "status": "Completed"
@@ -471,11 +461,6 @@
       "status": "Completed"
     },
     {
-      "id": 97,
-      "title": "dolorum laboriosam eos qui iure aliquam",
-      "status": "Completed"
-    },
-    {
       "id": 98,
       "title": "debitis accusantium ut quo facilis nihil quis sapiente necessitatibus",
       "status": "Pending"
@@ -484,6 +469,21 @@
       "id": 99,
       "title": "Harshal Birthday Party",
       "status": "Completed"
+    },
+    {
+      "id": 100,
+      "title": "sdjhsgfgdgsh",
+      "status": "Completed"
+    },
+    {
+      "id": 101,
+      "title": "Suraj",
+      "status": "Pending"
+    },
+    {
+      "title": "Bhushan",
+      "status": "Pending",
+      "id": 102
     }
   ]
 }

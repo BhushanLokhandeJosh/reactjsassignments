@@ -15,10 +15,10 @@ const Form = ({ activity, setActivity }) => {
 
   const onFormSubmit = (e) => {
     const data = {
-      id: [activity.length - 1].id + 1,
       title: input,
       status: "Pending",
     };
+    console.log(data);
 
     fetch("http://localhost:8000/todo", {
       method: "POST",

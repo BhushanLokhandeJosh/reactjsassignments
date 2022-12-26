@@ -20,14 +20,11 @@ function App() {
             path="/"
             element={<Home activity={activity} setActivity={setActivity} />}
           ></Route>
-          <Route
-            path="/create"
-            element={<Form activity={activity} setActivity={setActivity} />}
-          ></Route>
+          <Route path="/create" element={<Form />}></Route>
 
           <Route
             path="/blogs/edit/:id/:status"
-            element={<BlogDetails></BlogDetails>}
+            element={<BlogDetails />}
           ></Route>
 
           <Route
