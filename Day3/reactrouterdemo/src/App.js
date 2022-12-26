@@ -1,15 +1,13 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-
 import { useState } from "react";
 
 import Home from "./Components/Home";
 import ActivityList from "./Components/ActivityList";
 import BlogDetails from "./Components/BlogDetails";
-import ChangeStatus from "./Components/ChangeStatus";
-
 import Form from "./Components/Form";
-import "./App.css";
 import DeleteBlog from "./Components/DeleteBlog";
+
+import "./App.css";
 
 function App() {
   const [editToDo, setEditedToDo] = useState(null); //for edited todo..
@@ -29,7 +27,7 @@ function App() {
           ></Route>
 
           <Route
-            path="/blogs/edit/:id"
+            path="/blogs/edit/:id/:status"
             element={<BlogDetails></BlogDetails>}
           ></Route>
 

@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
 
-const Form = ({ activity, setActivity }) => {
+import useFetch from "./useFetch";
+
+import { TODOURL } from "../Constants/todoUrl";
+
+const Form = () => {
   const [input, setInput] = useState(""); //for input todo..
   const navigate = useNavigate();
+
+  const { activity, pending, erro } = useFetch(TODOURL);
+  console.log(activity);
 
   const onInputChange = (event) => {
     setInput(event.target.value);
@@ -11,7 +18,7 @@ const Form = ({ activity, setActivity }) => {
 
   const onFormSubmit = (e) => {
     const data = {
-      id: activity.length + 1,
+      id: [activity.length - 1].id + 1,
       title: input,
       status: "Pending",
     };
@@ -26,17 +33,10 @@ const Form = ({ activity, setActivity }) => {
 
     setInput("");
     navigate("/");
-    // } else {
-    //   fetch(`http://localhost:8000/todo/${editToDo.id}`, {
-    //     method: "PATCH",
-    //     body: JSON.stringify(data),
-    //     headers: { "content-type": "application/json" },
-    //   });
-    // }
   };
   return (
-    <div>
-      <h1 style={{ marginTop: "40px" }}>Add Blog Title</h1>
+    <div className="create-box">
+      <h3 style={{ marginTop: "40px" }}>Add Blog Title</h3>
 
       <input
         type="text"
@@ -50,6 +50,9 @@ const Form = ({ activity, setActivity }) => {
       <button className="button-add" onClick={onFormSubmit}>
         Add Blogs
       </button>
+      <br></br>
+      <br></br>
+
       <div>
         <Link to="/">Back To Home Page</Link>
       </div>

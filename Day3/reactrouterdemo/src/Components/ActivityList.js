@@ -1,5 +1,6 @@
-import "../Styles/activitylist.css";
 import { Link } from "react-router-dom";
+
+import "../Styles/activitylist.css";
 
 const ActivityList = ({ activity, setActivity, title }) => {
   return (
@@ -19,7 +20,9 @@ const ActivityList = ({ activity, setActivity, title }) => {
             <td>{object.status}</td>
             <td>
               <nav>
-                <Link to={`/blogs/edit/${object.id}`}>Edit</Link>
+                <Link to={`/blogs/edit/${object.id}/${object.status}`}>
+                  Edit
+                </Link>
               </nav>
             </td>
             <td>

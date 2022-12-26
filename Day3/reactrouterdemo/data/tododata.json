@@ -2,13 +2,13 @@
   "todo": [
     {
       "id": 2,
-      "title": "quis ut nam facilis et officia qui",
-      "status": "Completed"
+      "title": "quis ut nam facilis et ",
+      "status": "Pending"
     },
     {
       "id": 3,
-      "title": "fugiat veniam minus",
-      "status": "Completed"
+      "title": "fugiat",
+      "status": "Pending"
     },
     {
       "id": 4,
@@ -487,8 +487,8 @@
     },
     {
       "id": 99,
-      "title": "neque voluptates ratione",
-      "status": "Completed"
+      "title": "Harshal Party",
+      "status": "Pending"
     }
   ]
 }

@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import useFetch from "./useFetch";
-import ActivityList from "./ActivityList";
-import { TODOURL } from "../Constants/todoUrl";
 import { SyncLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+
+import useFetch from "./useFetch";
+import ActivityList from "./ActivityList";
+
+import { TODOURL } from "../Constants/todoUrl";
+
 import Image from "../../src/error-banner.jpeg";
 
 const Home = ({ activity, setActivity }) => {
@@ -26,7 +29,9 @@ const Home = ({ activity, setActivity }) => {
           ) : (
             <div>
               <h2>All Blogs</h2>
-              <Link to="/create">Create Blog</Link>
+              <Link to="/create" className="link">
+                Create Blog
+              </Link>
               {
                 <ActivityList
                   activity={activity}
