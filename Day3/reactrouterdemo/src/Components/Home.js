@@ -28,10 +28,12 @@ const Home = ({ activity, setActivity }) => {
             <SyncLoader color="#958255" />
           ) : (
             <div>
-              <h2>All Blogs</h2>
+              <h3>All Blogs</h3>
+
               <Link to="/create" className="link">
                 Create Blog
               </Link>
+
               {
                 <ActivityList
                   activity={activity}

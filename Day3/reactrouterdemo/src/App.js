@@ -10,7 +10,6 @@ import DeleteBlog from "./Components/DeleteBlog";
 import "./App.css";
 
 function App() {
-  const [editToDo, setEditedToDo] = useState(null); //for edited todo..
   const [activity, setActivity] = useState([]);
 
   return (

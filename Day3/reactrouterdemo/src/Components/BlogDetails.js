@@ -6,7 +6,6 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id, status } = useParams();
-  console.log(id + " " + status);
   const navigate = useNavigate();
 
   const [Editedtitle, setEditedTitle] = useState(null);
@@ -15,19 +14,15 @@ const BlogDetails = () => {
   let result = useFetch("http://localhost:8000/todo/" + id);
 
   useEffect(() => {
-    console.log(result);
-
     setEditedTitle(result.activity.title);
     setStatus(result.activity.status);
   }, [result.activity]);
 
   const onTitleChange = (event) => {
-    console.log(event.target.value);
     setEditedTitle(event.target.value);
   };
 
   const onStatusChange = (event) => {
-    console.log(event.target.value);
     setStatus(event.target.value);
   };
 
@@ -37,8 +32,6 @@ const BlogDetails = () => {
       title: Editedtitle,
       status: Status,
     };
-
-    console.log(editedBlog);
 
     fetch(`http://localhost:8000/todo/${result.activity.id}`, {
       method: "PATCH",

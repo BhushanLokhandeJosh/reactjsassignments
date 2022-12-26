@@ -5,12 +5,9 @@ import useFetch from "./useFetch";
 
 import { TODOURL } from "../Constants/todoUrl";
 
-const Form = () => {
+const Form = ({ activity, setActivity }) => {
   const [input, setInput] = useState(""); //for input todo..
   const navigate = useNavigate();
-
-  const { activity, pending, erro } = useFetch(TODOURL);
-  console.log(activity);
 
   const onInputChange = (event) => {
     setInput(event.target.value);
@@ -22,8 +19,6 @@ const Form = () => {
       title: input,
       status: "Pending",
     };
-
-    console.log(data);
 
     fetch("http://localhost:8000/todo", {
       method: "POST",
