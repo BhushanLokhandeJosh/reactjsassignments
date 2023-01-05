@@ -10,7 +10,6 @@ import { TODOURL } from "../Constants/todoUrl";
 import Image from "../error-banner.jpeg";
 
 const Home = () => {
-  const [count, setcount] = useState(0);
   const [activity, setActivity] = useState([]);
   const { activity: todo, pending, error } = useFetch(TODOURL);
   const [searchtitle, setSearchtitle] = useState("");
@@ -71,9 +70,7 @@ const Home = () => {
             <div>
               <h1 className="header">All Todos</h1>
               <hr />
-              <button onClick={(e) => setcount(e.target.value)}>
-                Click Me
-              </button>
+
               <div>
                 <Link to="/create" className="btn btn-link">
                   <b className="link">Create Todo</b>
