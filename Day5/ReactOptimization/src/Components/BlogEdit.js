@@ -6,12 +6,11 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id, status, DueDate } = useParams();
-  const navigate = useNavigate();
-
   const [Editedtitle, setEditedTitle] = useState(null);
   const [Status, setStatus] = useState(null);
   const [desc, setDescription] = useState("");
   const [date, setDate] = useState(DueDate);
+  const navigate = useNavigate();
 
   let result = useFetch("http://localhost:8000/todo/" + id);
 

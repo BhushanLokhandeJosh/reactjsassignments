@@ -5,7 +5,7 @@ import useFetch from "./useFetch";
 
 import { TODOURL } from "../Constants/todoUrl";
 
-const Form = ({ activity, setActivity }) => {
+const Form = ({ navigate }) => {
   const [input, setInput] = useState(""); //for input todo..
   const [desc, setDesciption] = useState("");
   const [date, setDate] = useState();

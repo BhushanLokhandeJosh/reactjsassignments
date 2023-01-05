@@ -10,12 +10,52 @@ import { TODOURL } from "../Constants/todoUrl";
 import Image from "../error-banner.jpeg";
 
 const Home = () => {
+  const [count, setcount] = useState(0);
   const [activity, setActivity] = useState([]);
   const { activity: todo, pending, error } = useFetch(TODOURL);
+  const [searchtitle, setSearchtitle] = useState("");
+  const [sort, setSorting] = useState("ASC");
+  const [status, setStatus] = useState("All");
+  const [todos, setTodos] = useState(activity);
 
   useEffect(() => {
     setActivity(todo);
   }, [todo]);
+
+  useEffect(() => {
+    setTodos(activity);
+  }, [activity]);
+
+  const handleSorting = useMemo(() => {
+    todos.sort((todo1, todo2) =>
+      sort === "ASC"
+        ? todo1.title > todo2.title
+          ? 1
+          : -1
+        : todo1.title < todo2.title
+        ? 1
+        : -1
+    );
+  }, [sort, todos]);
+
+  const handleStatus = useMemo(() => {
+    if (status === "All") {
+      setTodos(activity);
+    } else if (status === "Completed" || status === "Pending") {
+      setTodos(activity.filter((todo) => todo.status.includes(status)));
+    }
+    if (searchtitle && (status === "Completed" || status === "Pending")) {
+      setTodos(
+        activity.filter(
+          (todo) =>
+            todo.title.toLowerCase().includes(searchtitle.toLowerCase()) &&
+            todo.status.includes(status)
+        )
+      );
+    } else if (searchtitle && status === "All") {
+      setTodos(activity.filter((todo) => todo.title.includes(searchtitle)));
+    }
+  }, [status, searchtitle]);
 
   return (
     <div className="container">
@@ -31,6 +71,9 @@ const Home = () => {
             <div>
               <h1 className="header">All Todos</h1>
               <hr />
+              <button onClick={(e) => setcount(e.target.value)}>
+                Click Me
+              </button>
               <div>
                 <Link to="/create" className="btn btn-link">
                   <b className="link">Create Todo</b>
@@ -41,6 +84,13 @@ const Home = () => {
                 activity={activity}
                 setActivity={setActivity}
                 title="Activity List"
+                searchtitle={searchtitle}
+                setSearchtitle={setSearchtitle}
+                todos={todos}
+                status={status}
+                setStatus={setStatus}
+                sort={sort}
+                setSorting={setSorting}
               />
             </div>
           )}

@@ -5,7 +5,6 @@ const BlogInfo = () => {
   const { id } = useParams();
 
   let result = useFetch("http://localhost:8000/todo/" + id);
-  console.log(result);
 
   return (
     <div className="blog-details">

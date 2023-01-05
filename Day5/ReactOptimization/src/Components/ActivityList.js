@@ -3,47 +3,19 @@ import { Link } from "react-router-dom";
 
 import "../Styles/activitylist.css";
 
-const ActivityListComponent = ({ activity, setActivity, title }) => {
-  const [searchtitle, setSearchtitle] = useState(null);
-  const [sort, setSorting] = useState("ASC");
-  const [status, setStatus] = useState("All");
-  const [todos, setTodos] = useState(activity);
-
-  useEffect(() => {
-    setTodos(activity);
-  }, [activity]);
-
-  const handleSorting = useMemo(() => {
-    todos.sort((todo1, todo2) =>
-      sort === "ASC"
-        ? todo1.title > todo2.title
-          ? 1
-          : -1
-        : todo1.title < todo2.title
-        ? 1
-        : -1
-    );
-  }, [sort, todos]);
-
-  const handleStatus = useMemo(() => {
-    if (status === "All") {
-      setTodos(activity);
-    } else if (status === "Completed" || status === "Pending") {
-      setTodos(activity.filter((todo) => todo.status.includes(status)));
-    }
-
-    if (searchtitle && (status === "Completed" || status === "Pending")) {
-      setTodos(
-        activity.filter(
-          (todo) =>
-            todo.title.includes(searchtitle) && todo.status.includes(status)
-        )
-      );
-    } else if (searchtitle && status === "All") {
-      setTodos(activity.filter((todo) => todo.title.includes(searchtitle)));
-    }
-  }, [status, searchtitle]);
-
+const ActivityListComponent = ({
+  activity,
+  setActivity,
+  title,
+  searchtitle,
+  setSearchtitle,
+  todos,
+  status,
+  setStatus,
+  sort,
+  setSorting,
+}) => {
+  console.log("In Activitylist component");
   return (
     <div>
       <div>
