@@ -15,18 +15,13 @@ const Home = () => {
   const [searchtitle, setSearchtitle] = useState("");
   const [sort, setSorting] = useState("ASC");
   const [status, setStatus] = useState("All");
-  const [todos, setTodos] = useState(activity);
 
   useEffect(() => {
     setActivity(todo);
   }, [todo]);
 
-  useEffect(() => {
-    setTodos(activity);
-  }, [activity]);
-
   const handleSorting = useMemo(() => {
-    todos.sort((todo1, todo2) =>
+    const filteredData = activity.sort((todo1, todo2) =>
       sort === "ASC"
         ? todo1.title > todo2.title
           ? 1
@@ -35,26 +30,24 @@ const Home = () => {
         ? 1
         : -1
     );
-  }, [sort, todos]);
 
-  const handleStatus = useMemo(() => {
-    if (status === "All") {
-      setTodos(activity);
-    } else if (status === "Completed" || status === "Pending") {
-      setTodos(activity.filter((todo) => todo.status.includes(status)));
-    }
     if (searchtitle && (status === "Completed" || status === "Pending")) {
-      setTodos(
-        activity.filter(
-          (todo) =>
-            todo.title.toLowerCase().includes(searchtitle.toLowerCase()) &&
-            todo.status.includes(status)
-        )
+      return activity.filter(
+        (todo) =>
+          todo.title.toLowerCase().includes(searchtitle.toLowerCase()) &&
+          todo.status.includes(status)
       );
     } else if (searchtitle && status === "All") {
-      setTodos(activity.filter((todo) => todo.title.includes(searchtitle)));
+      return activity.filter((todo) => todo.title.includes(searchtitle));
     }
-  }, [status, searchtitle]);
+    if (status === "All") {
+      return activity;
+    } else if (status === "Completed" || status === "Pending") {
+      return activity.filter((todo) => todo.status.includes(status));
+    }
+
+    return filteredData;
+  }, [sort, todo, status, searchtitle]);
 
   return (
     <div className="container">
@@ -83,11 +76,11 @@ const Home = () => {
                 title="Activity List"
                 searchtitle={searchtitle}
                 setSearchtitle={setSearchtitle}
-                todos={todos}
                 status={status}
                 setStatus={setStatus}
                 sort={sort}
                 setSorting={setSorting}
+                handleSorting={handleSorting}
               />
             </div>
           )}

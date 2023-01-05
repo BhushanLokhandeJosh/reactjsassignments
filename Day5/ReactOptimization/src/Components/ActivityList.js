@@ -14,8 +14,8 @@ const ActivityListComponent = ({
   setStatus,
   sort,
   setSorting,
+  handleSorting,
 }) => {
-  console.log("In Activitylist component");
   return (
     <div>
       <div>
@@ -64,7 +64,7 @@ const ActivityListComponent = ({
             <th>Edit</th>
             <th>Delete</th>
           </tr>
-          {todos.map((object) => (
+          {handleSorting.map((object) => (
             <tr>
               <td>{object.id}</td>
               <Link to={`/blogdetails/${object.id}`} className="link">
